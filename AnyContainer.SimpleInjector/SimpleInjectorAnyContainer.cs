@@ -9,34 +9,57 @@ using SimpleInjector;
 
 namespace AnyContainer.SimpleInjector
 {
-    public class SimpleInjectorAnyContainer : AnyContainer
+	/// <summary>
+	/// Simple Injector implementation of the abstract container.
+	/// </summary>
+	public class SimpleInjectorAnyContainer : AnyContainer
     {
 	    private readonly Container container;
 
-	    public SimpleInjectorAnyContainer()
+		/// <summary>
+		/// Creates a new instance of the <see cref="SimpleInjectorAnyContainer"/> class.
+		/// </summary>
+		public SimpleInjectorAnyContainer()
 	    {
 		    this.container = new Container();
 		    this.AddCoreScopes();
 	    }
 
+		/// <summary>
+		/// Creates a new instance of the <see cref="SimpleInjectorAnyContainer"/> class.
+		/// </summary>
+		/// <param name="container">The Unity container to power the class.</param>
 		public SimpleInjectorAnyContainer(Container container)
 	    {
 		    this.container = container;
 		    this.AddCoreScopes();
 	    }
 
-	    private void AddCoreScopes()
+	    /// <summary>
+	    /// Adds the singleton and transient scope registrars.
+	    /// </summary>
+		private void AddCoreScopes()
 	    {
 		    this.AddScope(Lifetime.Singleton, new SimpleInjectorSingletonScopeRegistrar(this.container));
 		    this.AddScope(Lifetime.Transient, new SimpleInjectorTransientScopeRegistrar(this.container));
 	    }
 
-	    public override T Resolve<T>()
+	    /// <summary>
+	    /// Resolves an instance of the given type.
+	    /// </summary>
+	    /// <typeparam name="T">The type to resolve.</typeparam>
+	    /// <returns>An instance of the given type.</returns>
+		public override T Resolve<T>()
 	    {
 		    return this.container.GetInstance<T>();
 	    }
 
-	    public override IList<T> ResolveAll<T>()
+	    /// <summary>
+	    /// Resolves all instances of the given type.
+	    /// </summary>
+	    /// <typeparam name="T">The type to resolve.</typeparam>
+	    /// <returns>All instances of the given type.</returns>
+		public override IList<T> ResolveAll<T>()
 	    {
 		    return this.container.GetAllInstances<T>().ToList();
 	    }
