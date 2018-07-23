@@ -27,14 +27,14 @@ namespace AnyContainer
 	    /// <summary>
 	    /// Registers a type with a given implementation type.
 	    /// </summary>
-	    /// <typeparam name="T">The type to register.</typeparam>
-	    /// <typeparam name="TImpl">The type to implement the registration.</typeparam>
+	    /// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
 	    /// <param name="lifetime">The lifetime for the created object(s).</param>
-	    public void Register<T, TImpl>(Lifetime lifetime)
-		    where T : class
-		    where TImpl : class, T
+	    public void Register<TRegisteredAs, TResolvedTo>(Lifetime lifetime)
+		    where TRegisteredAs : class
+		    where TResolvedTo : class, TRegisteredAs
 	    {
-			this.GetRegistrarOrThrow(lifetime).Register<T, TImpl>();
+			this.GetRegistrarOrThrow(lifetime).Register<TRegisteredAs, TResolvedTo>();
 	    }
 
 		/// <summary>
@@ -63,13 +63,13 @@ namespace AnyContainer
 	    /// <summary>
 	    /// Registers a type with a given implementation type as a transient.
 	    /// </summary>
-	    /// <typeparam name="T">The type to register.</typeparam>
-	    /// <typeparam name="TImpl">The type to implement the registration.</typeparam>
-	    public void RegisterTransient<T, TImpl>()
-		    where T : class
-		    where TImpl : class, T
+	    /// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
+	    public void RegisterTransient<TRegisteredAs, TResolvedTo>()
+		    where TRegisteredAs : class
+		    where TResolvedTo : class, TRegisteredAs
 	    {
-		    this.Register<T, TImpl>(Lifetime.Transient);
+		    this.Register<TRegisteredAs, TResolvedTo>(Lifetime.Transient);
 	    }
 
 	    /// <summary>
@@ -96,13 +96,13 @@ namespace AnyContainer
 		/// <summary>
 		/// Registers a type with a given implementation type as a singleton.
 		/// </summary>
-		/// <typeparam name="T">The type to register.</typeparam>
-		/// <typeparam name="TImpl">The type to implement the registration.</typeparam>
-		public void RegisterSingleton<T, TImpl>()
-		    where T : class
-		    where TImpl : class, T
+		/// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+		/// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
+		public void RegisterSingleton<TRegisteredAs, TResolvedTo>()
+		    where TRegisteredAs : class
+		    where TResolvedTo : class, TRegisteredAs
 	    {
-		    this.Register<T, TImpl>(Lifetime.Singleton);
+		    this.Register<TRegisteredAs, TResolvedTo>(Lifetime.Singleton);
 	    }
 
 	    /// <summary>

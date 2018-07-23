@@ -15,11 +15,11 @@ namespace AnyContainer
 	    /// <summary>
 	    /// Registers a type with a given implementation type.
 	    /// </summary>
-	    /// <typeparam name="T">The type to register.</typeparam>
-	    /// <typeparam name="TImpl">The type to implement the registration.</typeparam>
-		public abstract void Register<T, TImpl>()
-		    where T : class
-		    where TImpl : class, T;
+	    /// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
+		public abstract void Register<TRegisteredAs, TResolvedTo>()
+		    where TRegisteredAs : class
+		    where TResolvedTo : class, TRegisteredAs;
 
 	    /// <summary>
 	    /// Registers a type with a given factory.

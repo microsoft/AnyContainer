@@ -27,11 +27,11 @@ namespace AnyContainer.SimpleInjector
 	    /// <summary>
 	    /// Registers a type with a given implementation type.
 	    /// </summary>
-	    /// <typeparam name="T">The type to register.</typeparam>
-	    /// <typeparam name="TImpl">The type to implement the registration.</typeparam>
-		public override void Register<T, TImpl>()
+	    /// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
+		public override void Register<TRegisteredAs, TResolvedTo>()
 	    {
-		    this.container.Register<T, TImpl>(Lifestyle.Transient);
+		    this.container.Register<TRegisteredAs, TResolvedTo>(Lifestyle.Transient);
 	    }
 
 	    /// <summary>
