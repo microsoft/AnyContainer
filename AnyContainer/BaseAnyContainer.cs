@@ -10,7 +10,7 @@ namespace AnyContainer
 	/// <summary>
 	/// An implementation-agnostic IoC container.
 	/// </summary>
-	public abstract class AnyContainer
+	public abstract class BaseAnyContainer : IResolver
     {
 		private readonly Dictionary<Lifetime, ScopeRegistrar> scopeDictionary = new Dictionary<Lifetime, ScopeRegistrar>();
 
