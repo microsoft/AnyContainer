@@ -54,7 +54,17 @@ namespace AnyContainer.Unity
 			return this.container.Resolve<T>();
 	    }
 
-	    /// <summary>
+        /// <summary>
+        /// Resolves an instance of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>An instance of the given type.</returns>
+        public override object Resolve(Type componentType)
+        {
+            return this.container.Resolve(componentType);
+        }
+
+        /// <summary>
 	    /// Resolves all instances of the given type.
 	    /// </summary>
 	    /// <typeparam name="T">The type to resolve.</typeparam>
@@ -63,5 +73,15 @@ namespace AnyContainer.Unity
 	    {
 		    return this.container.ResolveAll<T>().ToList();
 	    }
+
+        /// <summary>
+        /// Resolves all instances of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>All instances of the given type.</returns>
+        public override IList<object> ResolveAll(Type componentType)
+        {
+            return this.container.ResolveAll(componentType).ToList();
+        }
     }
 }

@@ -22,11 +22,25 @@ namespace AnyContainer
             where T : class;
 
         /// <summary>
+        /// Resolves an instance of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>An instance of the given type.</returns>
+        object Resolve(Type componentType);
+
+        /// <summary>
         /// Resolves all instances of the given type.
         /// </summary>
         /// <typeparam name="T">The type to resolve.</typeparam>
         /// <returns>All instances of the given type.</returns>
         IList<T> ResolveAll<T>()
             where T : class;
+
+        /// <summary>
+        /// Resolves all instances of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>All instances of the given type.</returns>
+        IList<object> ResolveAll(Type componentType);
     }
 }

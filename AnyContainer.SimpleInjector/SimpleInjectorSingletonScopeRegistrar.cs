@@ -34,7 +34,17 @@ namespace AnyContainer.SimpleInjector
 			this.container.Register<TRegisteredAs, TResolvedTo>(Lifestyle.Singleton);
 	    }
 
-	    /// <summary>
+        /// <summary>
+        /// Registers a type with a given implementation type.
+        /// </summary>
+        /// <param name="registeredAs">The type to register.</param>
+        /// <param name="resolvedTo">The type to implement the registration.</param>
+        public override void Register(Type registeredAs, Type resolvedTo)
+        {
+            this.container.Register(registeredAs, resolvedTo, Lifestyle.Singleton);
+        }
+
+        /// <summary>
 	    /// Registers a type with a given factory.
 	    /// </summary>
 	    /// <typeparam name="T">The type to register.</typeparam>

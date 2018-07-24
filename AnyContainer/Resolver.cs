@@ -60,6 +60,38 @@ namespace AnyContainer
         }
 
         /// <summary>
+        /// Resolves an instance of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>An instance of the given type.</returns>
+        public static object Resolve(Type componentType)
+        {
+            return currentResolver.Resolve(componentType);
+        }
+
+        /// <summary>
+        /// Tries to resolve an instance of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>An instance of the given type, or null if an instance could not be resolved.</returns>
+        public static object TryResolve(Type componentType)
+        {
+            if (currentResolver == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                return currentResolver.Resolve(componentType);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Resolves all instances of the given type.
         /// </summary>
         /// <typeparam name="T">The type to resolve.</typeparam>
@@ -68,6 +100,16 @@ namespace AnyContainer
             where T : class
         {
             return currentResolver.ResolveAll<T>();
+        }
+
+        /// <summary>
+        /// Resolves all instances of the given type.
+        /// </summary>
+        /// <param name="componentType">The type to resolve.</param>
+        /// <returns>All instances of the given type.</returns>
+        public static IList<object> ResolveAll(Type componentType)
+        {
+            return currentResolver.ResolveAll(componentType);
         }
     }
 }

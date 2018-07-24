@@ -36,7 +36,17 @@ namespace AnyContainer.Unity
 		    this.container.RegisterType<TRegisteredAs, TResolvedTo>();
 	    }
 
-	    /// <summary>
+        /// <summary>
+        /// Registers a type with a given implementation type.
+        /// </summary>
+        /// <param name="registeredAs">The type to register.</param>
+        /// <param name="resolvedTo">The type to implement the registration.</param>
+        public override void Register(Type registeredAs, Type resolvedTo)
+        {
+            this.container.RegisterType(registeredAs, resolvedTo);
+        }
+
+        /// <summary>
 	    /// Registers a type with a given factory.
 	    /// </summary>
 	    /// <typeparam name="T">The type to register.</typeparam>

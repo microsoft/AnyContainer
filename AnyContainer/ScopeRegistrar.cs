@@ -21,12 +21,19 @@ namespace AnyContainer
 		    where TRegisteredAs : class
 		    where TResolvedTo : class, TRegisteredAs;
 
-	    /// <summary>
-	    /// Registers a type with a given factory.
-	    /// </summary>
-	    /// <typeparam name="T">The type to register.</typeparam>
-	    /// <param name="factory">The factory to create the type.</param>
-		public abstract void Register<T>(Func<T> factory)
+        /// <summary>
+        /// Registers a type with a given implementation type.
+        /// </summary>
+        /// <param name="registeredAs">The type to register.</param>
+        /// <param name="resolvedTo">The type to implement the registration.</param>
+        public abstract void Register(Type registeredAs, Type resolvedTo);
+
+        /// <summary>
+        /// Registers a type with a given factory.
+        /// </summary>
+        /// <typeparam name="T">The type to register.</typeparam>
+        /// <param name="factory">The factory to create the type.</param>
+        public abstract void Register<T>(Func<T> factory)
 		    where T : class;
 
 	    /// <summary>
@@ -38,5 +45,14 @@ namespace AnyContainer
 		{
 		    this.Register<T, T>();
 	    }
+
+        /// <summary>
+        /// Registers a type.
+        /// </summary>
+        /// <param name="componentType">The type to register.</param>
+        public virtual void Register(Type componentType)
+        {
+            this.Register(componentType, componentType);
+        }
     }
 }
