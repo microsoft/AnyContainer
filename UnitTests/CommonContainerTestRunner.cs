@@ -14,7 +14,7 @@ namespace AnyContainer.UnitTests
 
     public static class CommonContainerTestRunner
     {
-        public static void RunTests(Func<BaseAnyContainer> factory)
+        public static void RunTests(Func<AnyContainerBase> factory)
         {
             TestSingletonGeneric(factory);
             TestSingletonNonGeneric(factory);
@@ -25,9 +25,9 @@ namespace AnyContainer.UnitTests
             TestTryResolveSucceed(factory);
         }
 
-        private static void TestSingletonGeneric(Func<BaseAnyContainer> factory)
+        private static void TestSingletonGeneric(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterSingleton<ILogger, Logger>();
 
             var instanceA = container.Resolve<ILogger>();
@@ -36,9 +36,9 @@ namespace AnyContainer.UnitTests
             Assert.AreEqual(instanceA, instanceB);
         }
 
-        private static void TestSingletonNonGeneric(Func<BaseAnyContainer> factory)
+        private static void TestSingletonNonGeneric(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterSingleton(typeof(ILogger), typeof(Logger));
 
             var instanceA = container.Resolve<ILogger>();
@@ -47,9 +47,9 @@ namespace AnyContainer.UnitTests
             Assert.AreEqual(instanceA, instanceB);
         }
 
-        private static void TestTransientGeneric(Func<BaseAnyContainer> factory)
+        private static void TestTransientGeneric(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterTransient<ILogger, Logger>();
 
             var instanceA = container.Resolve<ILogger>();
@@ -58,9 +58,9 @@ namespace AnyContainer.UnitTests
             Assert.AreNotEqual(instanceA, instanceB);
         }
 
-        private static void TestTransientNonGeneric(Func<BaseAnyContainer> factory)
+        private static void TestTransientNonGeneric(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterTransient(typeof(ILogger), typeof(Logger));
 
             var instanceA = container.Resolve<ILogger>();
@@ -69,11 +69,11 @@ namespace AnyContainer.UnitTests
             Assert.AreNotEqual(instanceA, instanceB);
         }
 
-        private static void TestFunc(Func<BaseAnyContainer> factory)
+        private static void TestFunc(Func<AnyContainerBase> factory)
         {
             bool functionCalled = false;
 
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterTransient<ILogger>(() =>
             {
                 functionCalled = true;
@@ -88,9 +88,9 @@ namespace AnyContainer.UnitTests
             Assert.IsNotNull(logger);
         }
 
-        private static void TestTryResolveFail(Func<BaseAnyContainer> factory)
+        private static void TestTryResolveFail(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             Resolver.SetResolver(container);
 
             ILogger logger = Resolver.TryResolve<ILogger>();
@@ -98,9 +98,9 @@ namespace AnyContainer.UnitTests
             Assert.IsNull(logger);
         }
 
-        private static void TestTryResolveSucceed(Func<BaseAnyContainer> factory)
+        private static void TestTryResolveSucceed(Func<AnyContainerBase> factory)
         {
-            BaseAnyContainer container = factory();
+            AnyContainerBase container = factory();
             container.RegisterSingleton<ILogger, Logger>();
 
             Resolver.SetResolver(container);

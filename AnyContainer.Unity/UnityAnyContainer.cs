@@ -12,7 +12,7 @@ namespace AnyContainer.Unity
 	/// <summary>
 	/// Unity implementation of the abstract container.
 	/// </summary>
-    public class UnityAnyContainer : BaseAnyContainer
+    public class UnityAnyContainer : AnyContainerBase
     {
 	    private readonly IUnityContainer container;
 

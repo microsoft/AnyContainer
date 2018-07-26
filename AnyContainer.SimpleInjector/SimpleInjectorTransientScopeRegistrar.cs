@@ -62,5 +62,14 @@ namespace AnyContainer.SimpleInjector
 	    {
 		    this.container.Register<T>(Lifestyle.Transient);
 	    }
+
+        /// <summary>
+        /// Registers a type.
+        /// </summary>
+        /// <param name="componentType">The type to register.</param>
+        public override void Register(Type componentType)
+        {
+            this.container.Register(componentType);
+        }
     }
 }

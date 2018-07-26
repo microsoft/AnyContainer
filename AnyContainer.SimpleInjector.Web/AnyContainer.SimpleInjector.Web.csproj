@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector.Integration.Web" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnyContainer.SimpleInjector\AnyContainer.SimpleInjector.csproj" />
+    <ProjectReference Include="..\AnyContainer\AnyContainer.csproj" />
+  </ItemGroup>
+
+</Project>

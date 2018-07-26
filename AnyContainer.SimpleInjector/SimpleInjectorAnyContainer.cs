@@ -12,7 +12,7 @@ namespace AnyContainer.SimpleInjector
 	/// <summary>
 	/// Simple Injector implementation of the abstract container.
 	/// </summary>
-	public class SimpleInjectorAnyContainer : BaseAnyContainer
+	public class SimpleInjectorAnyContainer : AnyContainerBase
     {
 	    private readonly Container container;
 

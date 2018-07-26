@@ -16,6 +16,11 @@ namespace AnyContainer
         /// <summary>
         /// One object is created and used for all resolves.
         /// </summary>
-        Singleton
+        Singleton,
+
+        /// <summary>
+        /// One object is created and used for each web request.
+        /// </summary>
+        WebRequest,
     }
 }
