@@ -11,6 +11,7 @@
     <PackageTags>IoC Dependency-Injection</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.0.0</Version>
+    <PackageId>Microsoft.AnyContainer.Unity</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

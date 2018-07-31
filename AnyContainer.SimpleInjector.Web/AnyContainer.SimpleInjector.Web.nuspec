@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>AnyContainer.SimpleInjector.Web</id>
+    <id>Microsoft.AnyContainer.SimpleInjector.Web</id>
     <version>0.1</version>
     <title>AnyContainer.SimpleInjector.Web</title>
     <authors>Microsoft</authors>
