@@ -12,6 +12,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.0.0</Version>
     <PackageId>Microsoft.AnyContainer</PackageId>
+    <PackageIconUrl>https://raw.githubusercontent.com/Microsoft/AnyContainer/master/AnyContainerIcon.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>

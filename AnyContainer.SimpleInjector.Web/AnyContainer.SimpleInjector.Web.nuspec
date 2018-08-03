@@ -8,13 +8,10 @@
     <owners>microsoft,AnyContainer</owners>
     <licenseUrl>https://github.com/Microsoft/AnyContainer/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/Microsoft/AnyContainer</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Microsoft/AnyContainer/master/AnyContainerIcon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Allows easily switching out IoC containers without rewriting code. This package supports web request scopes for SimpleInjector.</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>DI IoC SimpleInjector Container Dependency Injection</tags>
-    <dependencies>
-      <dependency id="AnyContainer" version="0.1"/>
-      <dependency id="AnyContainer.SimpleInjector" version="0.1"/>
-    </dependencies>	
   </metadata>
 </package>
