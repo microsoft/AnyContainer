@@ -1,7 +1,7 @@
 ﻿// © Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-namespace AnyContainer.UnitTests.RegisteredClasses
+namespace Microsoft.AnyContainer.UnitTests.RegisteredClasses
 {
     public interface ILogger
     {

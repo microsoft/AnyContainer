@@ -5,43 +5,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Unity;
+using SimpleInjector;
 
-namespace AnyContainer.Unity
+namespace Microsoft.AnyContainer.SimpleInjector
 {
 	/// <summary>
-	/// Unity implementation of the abstract container.
+	/// Simple Injector implementation of the abstract container.
 	/// </summary>
-    public class UnityAnyContainer : AnyContainerBase
+	public class SimpleInjectorAnyContainer : AnyContainerBase
     {
-	    private readonly IUnityContainer container;
+	    private readonly Container container;
 
 		/// <summary>
-		/// Creates a new instance of the <see cref="UnityAnyContainer"/> class.
+		/// Creates a new instance of the <see cref="SimpleInjectorAnyContainer"/> class.
 		/// </summary>
-	    public UnityAnyContainer()
+		public SimpleInjectorAnyContainer()
 	    {
-		    this.container = new UnityContainer();
-			this.AddCoreScopes();
+		    this.container = new Container();
+		    this.AddCoreScopes();
 	    }
 
 		/// <summary>
-		/// Creates a new instance of the <see cref="UnityAnyContainer"/> class.
+		/// Creates a new instance of the <see cref="SimpleInjectorAnyContainer"/> class.
 		/// </summary>
 		/// <param name="container">The Unity container to power the class.</param>
-		public UnityAnyContainer(IUnityContainer container)
+		public SimpleInjectorAnyContainer(Container container)
 	    {
 		    this.container = container;
-			this.AddCoreScopes();
+		    this.AddCoreScopes();
 	    }
 
-		/// <summary>
-		/// Adds the singleton and transient scope registrars.
-		/// </summary>
+	    /// <summary>
+	    /// Adds the singleton and transient scope registrars.
+	    /// </summary>
 		private void AddCoreScopes()
 	    {
-		    this.AddScope(Lifetime.Singleton, new UnitySingletonScopeRegistrar(this.container));
-		    this.AddScope(Lifetime.Transient, new UnityTransientScopeRegistrar(this.container));
+		    this.AddScope(Lifetime.Singleton, new SimpleInjectorSingletonScopeRegistrar(this.container));
+		    this.AddScope(Lifetime.Transient, new SimpleInjectorTransientScopeRegistrar(this.container));
 	    }
 
 	    /// <summary>
@@ -50,8 +50,8 @@ namespace AnyContainer.Unity
 	    /// <typeparam name="T">The type to resolve.</typeparam>
 	    /// <returns>An instance of the given type.</returns>
 		public override T Resolve<T>()
-		{
-			return this.container.Resolve<T>();
+	    {
+		    return this.container.GetInstance<T>();
 	    }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace AnyContainer.Unity
         /// <returns>An instance of the given type.</returns>
         public override object Resolve(Type componentType)
         {
-            return this.container.Resolve(componentType);
+            return this.container.GetInstance(componentType);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace AnyContainer.Unity
 	    /// <returns>All instances of the given type.</returns>
 		public override IList<T> ResolveAll<T>()
 	    {
-		    return this.container.ResolveAll<T>().ToList();
+		    return this.container.GetAllInstances<T>().ToList();
 	    }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace AnyContainer.Unity
         /// <returns>All instances of the given type.</returns>
         public override IList<object> ResolveAll(Type componentType)
         {
-            return this.container.ResolveAll(componentType).ToList();
+            return this.container.GetAllInstances(componentType).ToList();
         }
     }
 }

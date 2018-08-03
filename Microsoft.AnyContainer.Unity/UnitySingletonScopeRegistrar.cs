@@ -4,22 +4,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using SimpleInjector;
+using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
 
-namespace AnyContainer.SimpleInjector
+namespace Microsoft.AnyContainer.Unity
 {
 	/// <summary>
-	/// Register items in the transient scope for Simple Injector.
+	/// Registers items in the Singleton scope for Unity.
 	/// </summary>
-	internal class SimpleInjectorTransientScopeRegistrar : ScopeRegistrar
+	internal class UnitySingletonScopeRegistrar : ScopeRegistrar
     {
-	    private readonly Container container;
+	    private readonly IUnityContainer container;
 
 		/// <summary>
-		/// Creates a new instance of the <see cref="SimpleInjectorTransientScopeRegistrar"/> class.
+		/// Creates a new instance of the <see cref="UnitySingletonScopeRegistrar"/> class.
 		/// </summary>
-		/// <param name="container">The Simple Injector container to use to register.</param>
-		public SimpleInjectorTransientScopeRegistrar(Container container)
+		/// <param name="container">The unity container to do the registering.</param>
+		public UnitySingletonScopeRegistrar(IUnityContainer container)
 	    {
 		    this.container = container;
 	    }
@@ -31,7 +33,7 @@ namespace AnyContainer.SimpleInjector
 	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
 		public override void Register<TRegisteredAs, TResolvedTo>()
 	    {
-		    this.container.Register<TRegisteredAs, TResolvedTo>(Lifestyle.Transient);
+		    this.container.RegisterType<TRegisteredAs, TResolvedTo>(new ContainerControlledLifetimeManager());
 	    }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace AnyContainer.SimpleInjector
         /// <param name="resolvedTo">The type to implement the registration.</param>
         public override void Register(Type registeredAs, Type resolvedTo)
         {
-            this.container.Register(registeredAs, resolvedTo, Lifestyle.Transient);
+            this.container.RegisterType(registeredAs, resolvedTo, new ContainerControlledLifetimeManager());
         }
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace AnyContainer.SimpleInjector
 	    /// <param name="factory">The factory to create the type.</param>
 		public override void Register<T>(Func<T> factory)
 	    {
-		    this.container.Register<T>(factory, Lifestyle.Transient);
+		    this.container.RegisterType<T>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => factory()));
 	    }
 
 	    /// <summary>
@@ -60,16 +62,7 @@ namespace AnyContainer.SimpleInjector
 	    /// <typeparam name="T">The type to register.</typeparam>
 		public override void Register<T>()
 	    {
-		    this.container.Register<T>(Lifestyle.Transient);
-	    }
-
-        /// <summary>
-        /// Registers a type.
-        /// </summary>
-        /// <param name="componentType">The type to register.</param>
-        public override void Register(Type componentType)
-        {
-            this.container.Register(componentType);
-        }
+		    this.container.RegisterType<T>(new ContainerControlledLifetimeManager());
+		}
     }
 }

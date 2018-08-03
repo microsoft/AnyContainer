@@ -1,18 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Microsoft</Company>
     <Authors>Microsoft</Authors>
     <Description>Allows swapping out IoC containers without rewriting registration or resolve code.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/Microsoft/AnyContainer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Microsoft/AnyContainer</PackageProjectUrl>
-    <PackageTags>IoC Dependency-Injection</PackageTags>
+    <PackageTags>DI IoC Container Dependency-Injection Unity</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.0.0</Version>
-    <PackageId>Microsoft.AnyContainer</PackageId>
+    <PackageId>Microsoft.AnyContainer.Unity</PackageId>
     <PackageIconUrl>https://raw.githubusercontent.com/Microsoft/AnyContainer/master/AnyContainerIcon.png</PackageIconUrl>
+    <AssemblyName>Microsoft.AnyContainer.Unity</AssemblyName>
+    <RootNamespace>Microsoft.AnyContainer.Unity</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.AnyContainer\Microsoft.AnyContainer.csproj" />
+  </ItemGroup>
 
 </Project>

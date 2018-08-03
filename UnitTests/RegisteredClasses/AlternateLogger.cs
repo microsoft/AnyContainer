@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnyContainer.UnitTests.RegisteredClasses
+namespace Microsoft.AnyContainer.UnitTests.RegisteredClasses
 {
     public class AlternateLogger : ILogger
     {

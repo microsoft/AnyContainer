@@ -8,20 +8,20 @@ using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
 
-namespace AnyContainer.Unity
+namespace Microsoft.AnyContainer.Unity
 {
 	/// <summary>
-	/// Registers items in the Singleton scope for Unity.
+	/// Registers items in the Transient scope for Unity.
 	/// </summary>
-	internal class UnitySingletonScopeRegistrar : ScopeRegistrar
+    internal class UnityTransientScopeRegistrar : ScopeRegistrar
     {
 	    private readonly IUnityContainer container;
 
 		/// <summary>
-		/// Creates a new instance of the <see cref="UnitySingletonScopeRegistrar"/> class.
+		/// Creates a new instance of the <see cref="UnityTransientScopeRegistrar"/> class.
 		/// </summary>
 		/// <param name="container">The unity container to do the registering.</param>
-		public UnitySingletonScopeRegistrar(IUnityContainer container)
+	    public UnityTransientScopeRegistrar(IUnityContainer container)
 	    {
 		    this.container = container;
 	    }
@@ -33,7 +33,7 @@ namespace AnyContainer.Unity
 	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
 		public override void Register<TRegisteredAs, TResolvedTo>()
 	    {
-		    this.container.RegisterType<TRegisteredAs, TResolvedTo>(new ContainerControlledLifetimeManager());
+		    this.container.RegisterType<TRegisteredAs, TResolvedTo>();
 	    }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace AnyContainer.Unity
         /// <param name="resolvedTo">The type to implement the registration.</param>
         public override void Register(Type registeredAs, Type resolvedTo)
         {
-            this.container.RegisterType(registeredAs, resolvedTo, new ContainerControlledLifetimeManager());
+            this.container.RegisterType(registeredAs, resolvedTo);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace AnyContainer.Unity
 	    /// <param name="factory">The factory to create the type.</param>
 		public override void Register<T>(Func<T> factory)
 	    {
-		    this.container.RegisterType<T>(new ContainerControlledLifetimeManager(), new InjectionFactory(c => factory()));
+		    this.container.RegisterType<T>(new InjectionFactory(c => factory()));
 	    }
 
 	    /// <summary>
@@ -62,7 +62,7 @@ namespace AnyContainer.Unity
 	    /// <typeparam name="T">The type to register.</typeparam>
 		public override void Register<T>()
 	    {
-		    this.container.RegisterType<T>(new ContainerControlledLifetimeManager());
-		}
-    }
+		    this.container.RegisterType<T>();
+	    }
+	}
 }

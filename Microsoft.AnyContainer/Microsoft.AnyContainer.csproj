@@ -2,24 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
+    <Company>Microsoft</Company>
     <Authors>Microsoft</Authors>
-    <Description>Simple Injector implementation for AnyContainer.</Description>
+    <Description>Allows swapping out IoC containers without rewriting registration or resolve code.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/Microsoft/AnyContainer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Microsoft/AnyContainer</PackageProjectUrl>
-    <PackageTags>IoC Dependency-Injection</PackageTags>
+    <PackageTags>DI IoC Container Dependency-Injection</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Version>1.0.0</Version>
-    <PackageId>Microsoft.AnyContainer.SimpleInjector</PackageId>
+    <PackageId>Microsoft.AnyContainer</PackageId>
     <PackageIconUrl>https://raw.githubusercontent.com/Microsoft/AnyContainer/master/AnyContainerIcon.png</PackageIconUrl>
+    <AssemblyName>Microsoft.AnyContainer</AssemblyName>
+    <RootNamespace>Microsoft.AnyContainer</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="SimpleInjector" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AnyContainer\AnyContainer.csproj" />
-  </ItemGroup>
 
 </Project>

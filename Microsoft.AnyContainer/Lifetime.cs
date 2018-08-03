@@ -1,7 +1,7 @@
 ﻿// © Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-namespace AnyContainer
+namespace Microsoft.AnyContainer
 {
     /// <summary>
     /// Determines how IoC container-created objects are re-used.

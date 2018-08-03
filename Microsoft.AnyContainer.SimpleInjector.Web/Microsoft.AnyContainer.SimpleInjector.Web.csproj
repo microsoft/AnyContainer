@@ -45,22 +45,22 @@
     <Compile Include="SimpleInjectorWebRequestScopeRegistrar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnyContainer.SimpleInjector\AnyContainer.SimpleInjector.csproj">
-      <Project>{5f7a2cf3-159b-4b0d-8467-655b0ff8540f}</Project>
-      <Name>AnyContainer.SimpleInjector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnyContainer\AnyContainer.csproj">
-      <Project>{7450f976-4bd6-40d0-87f9-fcaf02aef021}</Project>
-      <Name>AnyContainer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="SimpleInjector.Integration.Web">
       <Version>4.3.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="AnyContainer.SimpleInjector.Web.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.AnyContainer.SimpleInjector\Microsoft.AnyContainer.SimpleInjector.csproj">
+      <Project>{1e261dc5-e7b9-4914-94f1-b96ec7d2d374}</Project>
+      <Name>Microsoft.AnyContainer.SimpleInjector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.AnyContainer\Microsoft.AnyContainer.csproj">
+      <Project>{36eefbc5-1801-40e4-8646-0ce62ba41157}</Project>
+      <Name>Microsoft.AnyContainer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,13 +1,13 @@
 ﻿// © Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-namespace AnyContainer
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace Microsoft.AnyContainer
+{
     /// <summary>
     /// Resolves instances of types.
     /// </summary>

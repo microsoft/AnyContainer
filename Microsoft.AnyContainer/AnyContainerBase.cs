@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AnyContainer
+namespace Microsoft.AnyContainer
 {
 	/// <summary>
 	/// An implementation-agnostic IoC container.

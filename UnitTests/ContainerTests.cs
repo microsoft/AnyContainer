@@ -1,11 +1,10 @@
-﻿using AnyContainer.Unity;
-using System;
+﻿using System;
+using Microsoft.AnyContainer.Unity;
+using Microsoft.AnyContainer.SimpleInjector;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AnyContainer.UnitTests
+namespace Microsoft.AnyContainer.UnitTests
 {
-    using AnyContainer.SimpleInjector;
-
     [TestClass]
     public class ContainerTests
     {

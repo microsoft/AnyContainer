@@ -7,8 +7,8 @@
     <ProjectGuid>{F9C378C3-EC16-4BF8-A16F-CC6BADBB87AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AnyContainer.UnitTests</RootNamespace>
-    <AssemblyName>AnyContainer.UnitTests</AssemblyName>
+    <RootNamespace>Microsoft.AnyContainer.UnitTests</RootNamespace>
+    <AssemblyName>Microsoft.AnyContainer.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -88,17 +88,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AnyContainer.SimpleInjector\AnyContainer.SimpleInjector.csproj">
-      <Project>{5f7a2cf3-159b-4b0d-8467-655b0ff8540f}</Project>
-      <Name>AnyContainer.SimpleInjector</Name>
+    <ProjectReference Include="..\Microsoft.AnyContainer.SimpleInjector\Microsoft.AnyContainer.SimpleInjector.csproj">
+      <Project>{1e261dc5-e7b9-4914-94f1-b96ec7d2d374}</Project>
+      <Name>Microsoft.AnyContainer.SimpleInjector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnyContainer.Unity\AnyContainer.Unity.csproj">
-      <Project>{f61d024e-46f2-4246-8fb5-ed3d05c406b8}</Project>
-      <Name>AnyContainer.Unity</Name>
+    <ProjectReference Include="..\Microsoft.AnyContainer.Unity\Microsoft.AnyContainer.Unity.csproj">
+      <Project>{787b31a0-82ef-4368-8315-cac3cad3abbb}</Project>
+      <Name>Microsoft.AnyContainer.Unity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnyContainer\AnyContainer.csproj">
-      <Project>{7450f976-4bd6-40d0-87f9-fcaf02aef021}</Project>
-      <Name>AnyContainer</Name>
+    <ProjectReference Include="..\Microsoft.AnyContainer\Microsoft.AnyContainer.csproj">
+      <Project>{36eefbc5-1801-40e4-8646-0ce62ba41157}</Project>
+      <Name>Microsoft.AnyContainer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

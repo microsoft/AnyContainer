@@ -7,7 +7,7 @@ using System.Text;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 
-namespace AnyContainer.SimpleInjector.Web
+namespace Microsoft.AnyContainer.SimpleInjector.Web
 {
     /// <summary>
     /// Register items in the web request scope for Simple Injector.

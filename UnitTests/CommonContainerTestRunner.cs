@@ -6,12 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AnyContainer.UnitTests.RegisteredClasses;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AnyContainer.UnitTests
+namespace Microsoft.AnyContainer.UnitTests
 {
-    using AnyContainer.UnitTests.RegisteredClasses;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     public static class CommonContainerTestRunner
     {
         public static void RunTests(Func<AnyContainerBase> factory)
