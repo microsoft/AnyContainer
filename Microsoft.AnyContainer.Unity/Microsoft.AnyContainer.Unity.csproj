@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Microsoft</Company>
     <Authors>Microsoft</Authors>
-    <Description>Allows swapping out IoC containers without rewriting registration or resolve code.</Description>
+    <Description>Allows easily switching out IoC containers without rewriting code. This package supports the Unity container.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/Microsoft/AnyContainer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Microsoft/AnyContainer</PackageProjectUrl>

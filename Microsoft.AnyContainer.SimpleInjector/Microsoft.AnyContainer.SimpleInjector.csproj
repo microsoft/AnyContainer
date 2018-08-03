@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
     <Authors>Microsoft</Authors>
-    <Description>Simple Injector implementation for AnyContainer.</Description>
+    <Description>Allows easily switching out IoC containers without rewriting code. This package supports Simple Injector.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <PackageLicenseUrl>https://github.com/Microsoft/AnyContainer/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Microsoft/AnyContainer</PackageProjectUrl>
