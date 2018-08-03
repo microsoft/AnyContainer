@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Microsoft.AnyContainer.SimpleInjector.Web</id>
-    <version>0.1</version>
+    <version>1.0.0</version>
     <title>AnyContainer.SimpleInjector.Web</title>
     <authors>Microsoft</authors>
     <owners>microsoft,AnyContainer</owners>
@@ -13,5 +13,10 @@
     <description>Allows easily switching out IoC containers without rewriting code. This package supports web request scopes for SimpleInjector.</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>DI IoC SimpleInjector Container Dependency Injection</tags>
+    <dependencies>
+      <dependency id="AnyContainer" version="$buildNum$"/>
+      <dependency id="AnyContainer.SimpleInjector" version="$buildNum$"/>
+      <dependency id="SimpleInjector.Integration.Web" version="4.3.0"/>
+    </dependencies>	
   </metadata>
 </package>
