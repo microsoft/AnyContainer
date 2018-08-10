@@ -41,6 +41,9 @@
     <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="DryIoc, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.3.0.2\lib\net45\DryIoc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -76,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonContainerTestRunner.cs" />
+    <Compile Include="DryIocContainerTests.cs" />
     <Compile Include="RegisteredClasses\AlternateLogger.cs" />
     <Compile Include="RegisteredClasses\ILogger.cs" />
     <Compile Include="RegisteredClasses\Logger.cs" />
@@ -88,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Microsoft.AnyContainer.DryIoc\Microsoft.AnyContainer.DryIoc.csproj">
+      <Project>{74545652-bccc-4133-a8a1-d81d08a89ff8}</Project>
+      <Name>Microsoft.AnyContainer.DryIoc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microsoft.AnyContainer.SimpleInjector\Microsoft.AnyContainer.SimpleInjector.csproj">
       <Project>{1e261dc5-e7b9-4914-94f1-b96ec7d2d374}</Project>
       <Name>Microsoft.AnyContainer.SimpleInjector</Name>
