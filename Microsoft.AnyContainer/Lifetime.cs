@@ -1,4 +1,4 @@
-﻿// © Microsoft Corporation. All rights reserved.
+﻿// Copyright © Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 namespace Microsoft.AnyContainer

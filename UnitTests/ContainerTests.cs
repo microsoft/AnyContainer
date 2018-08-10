@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright © Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+using System;
 using Microsoft.AnyContainer.Unity;
 using Microsoft.AnyContainer.SimpleInjector;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
