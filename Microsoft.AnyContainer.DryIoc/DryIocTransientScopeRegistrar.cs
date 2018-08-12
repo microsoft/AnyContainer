@@ -5,7 +5,10 @@ using DryIoc;
 
 namespace Microsoft.AnyContainer.DryIoc
 {
-    public class DryIocTransientScopeRegistrar : ScopeRegistrar
+	/// <summary>
+	/// Register items in the transient scope for DryIoc.
+	/// </summary>
+	public class DryIocTransientScopeRegistrar : ScopeRegistrar
     {
 	    private readonly Container container;
 
@@ -18,19 +21,43 @@ namespace Microsoft.AnyContainer.DryIoc
 		    this.container = container;
 	    }
 
+	    /// <summary>
+	    /// Registers a type with a given implementation type.
+	    /// </summary>
+	    /// <typeparam name="TRegisteredAs">The type to register.</typeparam>
+	    /// <typeparam name="TResolvedTo">The type to implement the registration.</typeparam>
 		public override void Register<TRegisteredAs, TResolvedTo>()
 	    {
 			this.container.Register<TRegisteredAs, TResolvedTo>(Reuse.Transient);
 	    }
 
-	    public override void Register(Type registeredAs, Type resolvedTo)
+	    /// <summary>
+	    /// Registers a type with a given implementation type.
+	    /// </summary>
+	    /// <param name="registeredAs">The type to register.</param>
+	    /// <param name="resolvedTo">The type to implement the registration.</param>
+		public override void Register(Type registeredAs, Type resolvedTo)
 	    {
 			this.container.Register(registeredAs, resolvedTo, Reuse.Transient);
 	    }
 
-	    public override void Register<T>(Func<T> factory)
+	    /// <summary>
+	    /// Registers a type with a given factory.
+	    /// </summary>
+	    /// <typeparam name="T">The type to register.</typeparam>
+	    /// <param name="factory">The factory to create the type.</param>
+		public override void Register<T>(Func<T> factory)
 	    {
 			this.container.RegisterDelegate(c => factory(), Reuse.Transient);
 	    }
-    }
+
+	    /// <summary>
+	    /// Registers a type.
+	    /// </summary>
+	    /// <typeparam name="T">The type to register.</typeparam>
+	    public override void Register<T>()
+	    {
+		    this.container.Register<T>(Reuse.Transient);
+	    }
+	}
 }

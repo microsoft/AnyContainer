@@ -11,7 +11,7 @@ namespace Microsoft.AnyContainer
     /// <summary>
     /// Resolves instances of types.
     /// </summary>
-    public static class Resolver
+    public static class StaticResolver
     {
         /// <summary>The current resolver implementation.</summary>
         private static IResolver currentResolver;

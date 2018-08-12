@@ -90,9 +90,9 @@ namespace Microsoft.AnyContainer.UnitTests
         private static void TestTryResolveFail(Func<AnyContainerBase> factory)
         {
             AnyContainerBase container = factory();
-            Resolver.SetResolver(container);
+            StaticResolver.SetResolver(container);
 
-            ILogger logger = Resolver.TryResolve<ILogger>();
+            ILogger logger = StaticResolver.TryResolve<ILogger>();
 
             Assert.IsNull(logger);
         }
@@ -102,9 +102,9 @@ namespace Microsoft.AnyContainer.UnitTests
             AnyContainerBase container = factory();
             container.RegisterSingleton<ILogger, Logger>();
 
-            Resolver.SetResolver(container);
+            StaticResolver.SetResolver(container);
 
-            ILogger logger = Resolver.TryResolve<ILogger>();
+            ILogger logger = StaticResolver.TryResolve<ILogger>();
 
             Assert.IsNotNull(logger);
         }
