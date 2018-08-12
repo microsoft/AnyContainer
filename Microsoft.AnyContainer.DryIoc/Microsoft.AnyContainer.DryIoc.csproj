@@ -10,6 +10,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/Microsoft/AnyContainer/master/AnyContainerIcon.png</PackageIconUrl>
     <PackageTags>DI IoC Container Dependency-Injection DryIoc</PackageTags>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
