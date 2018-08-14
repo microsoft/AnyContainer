@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;net46</TargetFrameworks>
     <Authors>Microsoft</Authors>
     <Description>Allows easily switching out IoC containers without rewriting code. This package supports DryIoc.</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
